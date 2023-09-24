@@ -1,0 +1,10 @@
+.popup__authTitle {
+  margin: 0;
+  padding: 32px 36px 60px;
+  text-align: center;
+  color: black;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+}

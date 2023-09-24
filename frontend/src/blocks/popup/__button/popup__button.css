@@ -1,0 +1,30 @@
+.popup__button {
+  margin: 20px 0 0;
+  padding: 0;
+  width: 358px;
+  height: 50px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  border-radius: 2px;
+  color: #fff;
+  background-color: #000;
+  border: none;
+  opacity: 1;
+}
+
+.popup__button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 767px) {
+  .popup__button {
+    width: 238px;
+    height: 46px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}

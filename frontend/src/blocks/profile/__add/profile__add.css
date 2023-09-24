@@ -1,0 +1,17 @@
+.profile__add {
+  width: 150px;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  border: 2px solid #fff;
+  background: url(../../../images/profile/Vector.svg) no-repeat center;
+  border-radius: 2px;
+}
+
+@media screen and (max-width: 767px) {
+  .profile__add {
+    width: 282px;
+    background-size: 16px;
+  }
+}
