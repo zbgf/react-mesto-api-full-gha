@@ -1,5 +1,5 @@
 const express = require('express');
-// const cors = require('cors');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const { errors } = require('celebrate');
 const cookieParser = require('cookie-parser');
@@ -17,7 +17,15 @@ const { PORT = 3000 } = process.env;
 
 const app = express();
 
-// app.use(cors);
+app.use(cors({
+  origin: [
+    'http://localhost:3001',
+    'https://api.zbgf.mesto.nomoredomainsrocks.ru',
+  ],
+  credentials: true,
+  methods: ['GET', 'PUT', 'POST', 'DELETE'],
+  allowedHeaders: ['Authorization', 'Content-Type'],
+}));
 
 app.use(express.json());
 app.use(cookieParser());
