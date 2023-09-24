@@ -71,10 +71,17 @@ export default class Api {
   }
 }
 
+// export const api = new Api({
+//   url: 'https://mesto.nomoreparties.co/v1/cohort-68',
+//   headers: {
+//     authorization: '10e9c4a8-f3b5-4b69-81f6-f55fe8e9d1ca',
+//     'Content-Type': 'application/json'
+//   }
+// });
+
 export const api = new Api({
-  url: 'https://mesto.nomoreparties.co/v1/cohort-68',
+  url: 'api.zbgf.mesto.nomoredomainsrocks.ru',
   headers: {
-    authorization: '10e9c4a8-f3b5-4b69-81f6-f55fe8e9d1ca',
     'Content-Type': 'application/json'
   }
 });

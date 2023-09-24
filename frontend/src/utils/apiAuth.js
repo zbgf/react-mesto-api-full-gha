@@ -40,4 +40,6 @@ class ApiAuth {
   }
 }
 
-export const apiAuth = new ApiAuth('https://auth.nomoreparties.co');
+// export const apiAuth = new ApiAuth('https://auth.nomoreparties.co');
+
+export const apiAuth = new ApiAuth('api.zbgf.mesto.nomoredomainsrocks.ru');
