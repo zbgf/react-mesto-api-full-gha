@@ -80,7 +80,7 @@ export default class Api {
 // });
 
 export const api = new Api({
-  url: 'api.zbgf.mesto.nomoredomainsrocks.ru',
+  url: 'https://api.zbgf.mesto.nomoredomainsrocks.ru',
   headers: {
     'Content-Type': 'application/json'
   }
