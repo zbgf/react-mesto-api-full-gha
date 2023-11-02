@@ -7,7 +7,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 62.84.115.190
+IP 62.84.115.190
 
 Frontend https://zbgf.mesto.nomoredomainsrocks.ru
 
