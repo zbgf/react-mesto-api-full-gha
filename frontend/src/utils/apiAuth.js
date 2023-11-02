@@ -14,7 +14,6 @@ class ApiAuth {
     return fetch(`${this._url}/signup`, {
       method: "POST",
       headers: {"Content-Type": "application/json"},
-      credentials: 'include',
       body: JSON.stringify({ email, password })
     })
     .then(res => {return this._getResponseData(res)})
@@ -24,25 +23,22 @@ class ApiAuth {
     return fetch(`${this._url}/signin`, {
       method: "POST",
       headers: {"Content-Type": "application/json"},
-      credentials: 'include',
       body: JSON.stringify({ email, password })
     })
     .then(res => {return this._getResponseData(res)})
   }
 
-  getJwt(jwt) {
+  getJwt() {
+    const token = localStorage.getItem('jwt');
     return fetch(`${this._url}/users/me`, {
       method: "GET",
-      credentials: 'include',
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${jwt}`
+        Authorization: `Bearer ${token}`
       }
     })
     .then(res => {return this._getResponseData(res)})
   }
 }
-
-// export const apiAuth = new ApiAuth('https://auth.nomoreparties.co');
 
 export const apiAuth = new ApiAuth('https://api.zbgf.mesto.nomoredomainsrocks.ru');

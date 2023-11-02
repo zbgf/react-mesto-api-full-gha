@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Main from "./Main";
+import PopupWithForm from "./PopupWithForm";
 import ImagePopup from "./ImagePopup";
 import CurrentUserContext from "../contexts/CurrentUserContext";
 import { api } from "../utils/api";
@@ -61,24 +62,8 @@ function App() {
       .catch(err => console.log(`Ошибка.....: ${err}`))
   };
 
-  React.useEffect(() => {
-    api.getUserData()
-      .then((data) => {
-        setCurrentUser(data)
-      })
-      .catch(err => console.log(`Ошибка.....: ${err}`))
-  }, []);
-
-  React.useEffect(() => {
-    api.getInitialCards()
-      .then((data) => {
-        setCards(data)
-      })
-      .catch(err => console.log(`Ошибка.....: ${err}`))
-  }, []);
-
   function handleCardLike(card) {
-    const isLiked = card.likes.some(i => i._id === currentUser._id);
+    const isLiked = card.likes.some(id => id === currentUser._id);
     api.changeLike(card._id, !isLiked)
       .then((newCard) => {
         setCards((state) => state.map((c) => c._id === card._id ? newCard : c))
@@ -143,15 +128,43 @@ function App() {
       apiAuth.getJwt(jwt)
         .then((res) => {
           if (res) {
-            setEmail(res.data.email);
+            setEmail(res.email);
             setLogged(true);
           }})
-          .catch(err => console.log(`Ошибка.....: ${err}`))
-    }}, []);
+        .catch(err => console.log(`Ошибка.....: ${err}`))
+
+      api.getUserData()
+        .then((data) => {
+          setCurrentUser(data)
+        })
+        .catch(err => console.log(`Ошибка.....: ${err}`))
+
+      api.getInitialCards()
+        .then((data) => {
+          setCards(data)
+        })
+        .catch(err => console.log(`Ошибка.....: ${err}`))
+    }}, [isLogged]);
 
   React.useEffect(() => {
     if (isLogged === true) {navigate("/")}
   }, [isLogged, navigate]);
+
+  // React.useEffect(() => {
+  //   api.getUserData()
+  //     .then((data) => {
+  //       setCurrentUser(data)
+  //     })
+  //     .catch(err => console.log(`Ошибка.....: ${err}`))
+  // }, [isLogged]);
+
+  // React.useEffect(() => {
+  //   api.getInitialCards()
+  //     .then((data) => {
+  //       setCards(data)
+  //     })
+  //     .catch(err => console.log(`Ошибка.....: ${err}`))
+  // }, [isLogged]);
 
   function handleSignOut() {
     navigate("/sign-in");
