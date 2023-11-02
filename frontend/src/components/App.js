@@ -150,22 +150,6 @@ function App() {
     if (isLogged === true) {navigate("/")}
   }, [isLogged, navigate]);
 
-  // React.useEffect(() => {
-  //   api.getUserData()
-  //     .then((data) => {
-  //       setCurrentUser(data)
-  //     })
-  //     .catch(err => console.log(`Ошибка.....: ${err}`))
-  // }, [isLogged]);
-
-  // React.useEffect(() => {
-  //   api.getInitialCards()
-  //     .then((data) => {
-  //       setCards(data)
-  //     })
-  //     .catch(err => console.log(`Ошибка.....: ${err}`))
-  // }, [isLogged]);
-
   function handleSignOut() {
     navigate("/sign-in");
     localStorage.removeItem("jwt");

@@ -1,7 +1,6 @@
 export default class Api {
   constructor({ url }) {
     this._url = url;
-    // this._headers = headers;
   }
 
   _getResponseData(res) {
@@ -17,7 +16,7 @@ export default class Api {
       method: 'GET',
       headers: {
         authorization: `Bearer ${token}`,
-        // 'Content-Type': 'application/json'
+        'Content-Type': 'application/json'
       }
     })
     .then(res => {return this._getResponseData(res)})
@@ -55,7 +54,7 @@ export default class Api {
       method: 'GET',
       headers: {
         authorization: `Bearer ${token}`,
-        // 'Content-Type': 'application/json'
+        'Content-Type': 'application/json'
       }
     })
     .then(res => {return this._getResponseData(res)})
@@ -80,7 +79,7 @@ export default class Api {
       method: 'DELETE',
       headers: {
         authorization: `Bearer ${token}`,
-        // 'Content-Type': 'application/json'
+        'Content-Type': 'application/json'
       }
     })
     .then(res => {return this._getResponseData(res)})
